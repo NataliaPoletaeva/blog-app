@@ -2,6 +2,11 @@
 
 <div class='post-page'>
 <div class='post-head'>
+  <div class='new-like'>
+    <%= form_with url: "/posts/#{@post.id}/likes", scope: :like do |form| %>
+    <%= form.submit "Like", class: "post-like-btns"%>
+  <% end %>
+  </div>
   <div class='post-title'>
     <%= "#{@post.title} by #{@post.author.name}" %>
   </div>
@@ -18,5 +23,6 @@
     <%= "#{comment.author.name} : #{comment.text}" %>
   </div>
 <% end %>
+<%= render partial: 'partials/formComments', local: { post: @post } %>
 </div>
 </div>
