@@ -3,7 +3,7 @@
 <div class='post-page'>
 <div class='post-head'>
   <div class='post-title'>
-    <%= "#{@post.title} by #{@post.user.name}" %>
+    <%= "#{@post.title} by #{@post.author.name}" %>
   </div>
   <div class='counters'>
     <%= "#{@post.likes_counter || 0} likes #{@post.comments_counter || 0} comments"  %>
@@ -15,7 +15,7 @@
 <div class='comments'>
 <% @comments.each do |comment| %>
   <div class='comment'>
-    <%= "#{comment.user.name} : #{comment.text}" %>
+    <%= "#{comment.author.name} : #{comment.text}" %>
   </div>
 <% end %>
 </div>

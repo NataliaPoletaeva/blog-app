@@ -7,7 +7,7 @@
   <%= render partial: "partials/postCard", locals: { user: @user, post: post} %>
   <% post.most_recent_comments.each do |comment| %>
     <div class='comment'>
-      <%= "#{comment.user.name} : #{comment.text}" %> 
+      <%= "#{comment.author.name} : #{comment.text}" %> 
     </div>
   <% end %>
   </div>
