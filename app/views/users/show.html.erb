@@ -1,3 +1,17 @@
-<h1>Here is a page for showing user details </h1>
+<%= stylesheet_link_tag "application" %>
 
-<p>This page is under construction</p>
+<%= render partial: "partials/userInfo", locals: { user: @user} %>
+
+<div class='posts'>
+  <div class='bio'>
+    <span>Bio</span>
+    <%= "#{@user.bio}" %><br>
+  </div>
+  <% @user.most_recent_posts.each do |post| %>
+    <%= render partial: "partials/postCard", locals: { user: @user, post: post} %>
+  <% end %>
+  <button type='button'>
+    <%= link_to "Show all posts", user_posts_path(@user) %><br> 
+  </button>
+
+</div>

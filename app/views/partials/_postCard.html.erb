@@ -1,0 +1,11 @@
+<div class='post-card'> 
+  <div class='post-head'>
+    <%= link_to "#{post.title}", user_post_path(user.id, post.id) %><br>
+  </div>
+  <div class='post-body'>
+    <%= "#{post.text}" %><br>
+    <div class='small-text'>
+      <%= "#{post.likes_counter || 0} likes #{post.comments_counter || 0} comments" %>
+    </div>
+    </div>
+</div>
