@@ -1,3 +1,7 @@
-<h1>Here is a page for showing list of users</h1>
-
-<p>This page is under construction</p>
+<%= stylesheet_link_tag "application" %>
+ 
+<% @users.each do |user| %>
+  <div>
+  <%= render partial: "partials/userInfo", locals: { user: user } %>
+  </div>
+<% end %>

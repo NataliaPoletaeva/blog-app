@@ -1,3 +1,22 @@
-<h1>Here is a page for showing details of the post for a given user</h1>
+<%= stylesheet_link_tag "application" %>
 
-<p>This page is under construction</p>
+<div class='post-page'>
+<div class='post-head'>
+  <div class='post-title'>
+    <%= "#{@post.title} by #{@post.user.name}" %>
+  </div>
+  <div class='counters'>
+    <%= "#{@post.likes_counter || 0} likes #{@post.comments_counter || 0} comments"  %>
+  </div>
+</div>
+<div class='post-body'>
+  <%= "#{@post.text}" %><br>
+</div>
+<div class='comments'>
+<% @comments.each do |comment| %>
+  <div class='comment'>
+    <%= "#{comment.user.name} : #{comment.text}" %>
+  </div>
+<% end %>
+</div>
+</div>

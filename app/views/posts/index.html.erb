@@ -1,3 +1,15 @@
-<h1>Here is a page for showing list for post for a given user </h1>
-
-<p>This page is under construction</p>
+<%= stylesheet_link_tag "application" %>
+ 
+ <%= render partial: "partials/userInfo", locals: {user: @user} %>
+ <div class='posts'>
+ <% @posts.each do |post| %>
+  <div class='post'>
+  <%= render partial: "partials/postCard", locals: { user: @user, post: post} %>
+  <% post.most_recent_comments.each do |comment| %>
+    <div class='comment'>
+      <%= "#{comment.user.name} : #{comment.text}" %> 
+    </div>
+  <% end %>
+  </div>
+ <% end %>
+ </div>
