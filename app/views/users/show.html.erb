@@ -2,11 +2,13 @@
 
 <%= render partial: "partials/userInfo", locals: { user: @user} %>
 
-<div class='posts'>
-  <div class='bio'>
+<div class='bio'>
     <span>Bio</span>
-    <%= "#{@user.bio}" %><br>
-  </div>
+    <%= "#{@user.bio}" %>
+</div>
+
+<div class='posts'>
+  <%= render partial: "partials/formPost", locals: { user: @user, post: @post} %>
   <% @user.most_recent_posts.each do |post| %>
     <%= render partial: "partials/postCard", locals: { user: @user, post: post} %>
   <% end %>

@@ -9,4 +9,24 @@ class PostsController < ApplicationController
     @user = @post.author
     @comments = @post.comments
   end
+
+  def new
+    @post = Post.new
+  end
+
+  def create
+    @post = current_user.posts.new(post_params)
+
+    if @post.save
+      redirect_to user_posts_path(@post.author)
+    else
+      render :new
+    end
+  end
+
+  private
+
+  def post_params
+    params.require(:post).permit(:title, :text)
+  end
 end
