@@ -17,12 +17,10 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.new(post_params)
 
-    respond_to do |format|
-      if @post.save
-        format.html { redirect_to user_posts_url(current_user.id) }
-      else
-        format.html { render :new }
-      end
+    if @post.save
+      redirect_to user_posts_path(@post.author)
+    else
+      render :new
     end
   end
 
