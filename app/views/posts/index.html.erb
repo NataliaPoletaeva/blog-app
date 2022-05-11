@@ -3,16 +3,18 @@
  <%= render partial: "partials/userInfo", locals: {user: @user} %>
  
  <div class='posts'>
- <%= render partial: "partials/formPost", locals: { user: @user, post: @post} %>
- <% @posts.each do |post| %>
-  <div class='post'>
-  <%= render partial: "partials/postCard", locals: { user: @user, post: post} %>
-  <div>
-  <% post.most_recent_comments.each do |comment| %>
-    <div class='comment'>
+  <%= render partial: "partials/formPost", locals: { user: @user, post: @post} %>
+  <% @posts.each do |post| %>
+   <div class="post-w-comments">
+    <%= render partial: "partials/postCard", locals: { user: @user, post: post} %>
+    <div class="comments">
+      <% post.most_recent_comments.each do |comment| %>
+      <div class='comment'>
       <%= "#{comment.user.name} : #{comment.text}" %> 
+      </div>
+      <% end %>
+    </div>
     </div>
   <% end %>
-  </div>
- <% end %>
+  
  </div>
