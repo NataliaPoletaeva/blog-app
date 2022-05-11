@@ -8,7 +8,7 @@
   <% end %>
   </div>
   <div class='post-title'>
-    <%= "#{@post.title} by #{@post.author.name}" %>
+    <%= "#{@post.title} by #{@post.user.name}" %>
   </div>
   <div class='counters'>
     <%= "#{@post.likes_counter || 0} likes #{@post.comments_counter || 0} comments"  %>
@@ -20,7 +20,7 @@
 <div class='comments'>
 <% @comments.each do |comment| %>
   <div class='comment'>
-    <%= "#{comment.author.name} : #{comment.text}" %>
+    <%= "#{comment.user.name} : #{comment.text}" %>
   </div>
 <% end %>
 <%= render partial: 'partials/formComments', local: { post: @post } %>

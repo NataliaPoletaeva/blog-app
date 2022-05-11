@@ -10,7 +10,7 @@
   <div>
   <% post.most_recent_comments.each do |comment| %>
     <div class='comment'>
-      <%= "#{comment.author.name} : #{comment.text}" %> 
+      <%= "#{comment.user.name} : #{comment.text}" %> 
     </div>
   <% end %>
   </div>

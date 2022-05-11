@@ -6,7 +6,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @user = @post.author
+    @user = @post.user
     @comments = @post.comments
   end
 
@@ -18,7 +18,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.new(post_params)
 
     if @post.save
-      redirect_to user_posts_path(@post.author)
+      redirect_to user_posts_path(@post.user)
     else
       render :new
     end

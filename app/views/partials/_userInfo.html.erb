@@ -1,5 +1,5 @@
   <div class='user-card'>
-    <%= image_tag 'user_pic.png' %>
+    <%= image_tag("#{user.photo}") %>
     <div class='info-card'>
       <%= link_to "#{user.name}", user %><br>
       <%= link_to "#{user.posts_counter || 0} posts", user %>
